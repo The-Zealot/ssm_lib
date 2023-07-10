@@ -15,7 +15,7 @@ public:
     void setRequest(Request &request);
     Request* request();
 
-    virtual Reply handle() = 0;
+    virtual Reply handle() const = 0;
 
 protected:
     Request* _request;
