@@ -7,7 +7,12 @@ RequestExecutor::RequestExecutor()
 
 bool RequestExecutor::execute(const QString request, Reply &reply)
 {
+    if (!_requestMap.contains(request))
+    {
+        return false;
+    }
     _requestMap[request](reply);
+    return true;
 }
 
 void RequestExecutor::getSsmVersion(Reply &reply)
