@@ -12,13 +12,13 @@ class SSM_LIB_EXPORT RequestExecutor
 public:
     RequestExecutor();
 
-    bool execute(const QString requset, Reply &reply);
+    bool execute(const QString requset, Reply &reply, QJsonObject body = QJsonObject());
 
 private:
-    static void getSsmVersion(Reply &reply);
+    static void getSsmVersion(Reply &reply, QJsonObject params = QJsonObject());
 
 protected:
-    QMap<QString, void(*)(Reply&)> _requestMap;
+    QMap<QString, void(*)(Reply&, QJsonObject)> _requestMap;
 };
 
 #endif // REQUESTEXECUTOR_H
